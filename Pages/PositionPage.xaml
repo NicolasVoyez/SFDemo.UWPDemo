@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="SFDemo.UWPDemo.PositionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SFDemo.UWPDemo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="using:WinRTXamlToolkit.Interactivity"
+    xmlns:controls="using:SFDemo.UWPDemo.Controls"
+    xmlns:conv="using:SFDemo.UWPDemo.Converters"
+    mc:Ignorable="d"
+    DataContext="{Binding Position, Source={StaticResource Locator}}"    >
+    <Page.Resources>
+        <conv:BoolToTextConverter x:Key="BoolToTextConverter" />
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="75" />
+            <RowDefinition Height="75" />
+            <RowDefinition Height="75" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Position : " />
+        <TextBlock Text="{Binding Position}" Grid.Row="1" />
+        <TextBlock Text="Je suis a Supinfo : " Grid.Row="2" />
+        <TextBlock Text="{Binding AmIAtSupinfo, Converter={StaticResource BoolToTextConverter}}" Grid.Column="1" Grid.Row="2"/>
+    </Grid>
+
+</Page>
