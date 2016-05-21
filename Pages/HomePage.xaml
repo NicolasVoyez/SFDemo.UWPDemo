@@ -9,7 +9,5 @@
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock Text="SFDemo.UWPDemo" Style="{StaticResource TitleTextBlockStyle}" Margin="12,0,0,0"/>
-        
-        <!-- TODO - This is the main starting UI for your app -->
     </StackPanel>
 </Page>

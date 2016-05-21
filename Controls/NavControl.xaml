@@ -38,8 +38,43 @@
             </DataTemplate>
         </ResourceDictionary>
     </UserControl.Resources>
-    <SplitView x:Name="NavPanel" DisplayMode="CompactOverlay" CompactPaneLength="48" OpenPaneLength="256"
-               IsPaneOpen="{Binding IsNavOpen, Mode=TwoWay}">
+    <!--<SplitView x:Name="NavPanel" IsPaneOpen="{Binding IsNavOpen, Mode=TwoWay}">-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                    Grid.Row="0">
+            <TextBlock Text="SFDemo.UWPDemo" Style="{StaticResource TitleTextBlockStyle}" Margin="12,0,0,0"/>
+        </StackPanel>
+        <SplitView x:Name="NavPanel" IsPaneOpen="True" Grid.Row="1">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowStates">
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NavPanel.DisplayMode" Value="Inline"/>
+                        <Setter Target="NavPanel.CompactPaneLength" Value="48"/>
+                        <Setter Target="NavPanel.OpenPaneLength" Value="350"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--<Setter Target="NavPanel.IsPaneOpen" Value="{Binding IsNavOpen, Mode=TwoWay}"/>-->
+                        <Setter Target="NavPanel.DisplayMode" Value="Overlay"/>
+                        <Setter Target="NavPanel.CompactPaneLength" Value="48"/>
+                        <Setter Target="NavPanel.OpenPaneLength" Value="350"/>
+                        <!--<Setter Target="NavPanel.OpenPaneLength" Value="{Binding ElementName=NavPanel, Path=ActualWidth}"/>-->
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <SplitView.Pane>
             <Grid>
                 <Grid.RowDefinitions>
@@ -47,8 +82,14 @@
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Button Grid.Row="0" Content="&#xE700;" FontFamily="Segoe MDL2 Assets" Width="48" Height="44" 
-                                Command="{Binding ToggleNavCommand}" />
+                <Button 
+                    x:Name="ToggleButton"
+                    Grid.Row="0"
+                    Content="&#xE700;"
+                    FontFamily="Segoe MDL2 Assets"
+                    Width="48"
+                    Height="44"   
+                    Command="{Binding ToggleNavCommand}" />
                 <ScrollViewer Grid.Row="1" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto">
                     <StackPanel Orientation="Vertical">
                         <ListView x:Name="MainItems" ItemsSource="{Binding Path=MainNavItems}"
@@ -82,4 +123,5 @@
                    x:Name="MainFrame" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch"/>
         </SplitView.Content>
     </SplitView>
+    </Grid>
 </UserControl>
