@@ -24,6 +24,7 @@ namespace SFDemo.UWPDemo.ViewModel
                 nav.Configure("Settings", typeof(SettingsPage));
                 nav.Configure("Photo", typeof(PhotoPage));
                 nav.Configure("Position", typeof(PositionPage));
+                nav.Configure("Music", typeof(MusicPage));
 
                 return nav;
             });
@@ -40,6 +41,7 @@ namespace SFDemo.UWPDemo.ViewModel
             SimpleIoc.Default.Register<SettingsViewModel>();
             SimpleIoc.Default.Register<PhotoViewModel>();
             SimpleIoc.Default.Register<PositionViewModel>();
+            SimpleIoc.Default.Register<MusiCallViewModel>();
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
@@ -66,5 +68,10 @@ namespace SFDemo.UWPDemo.ViewModel
             "CA1822:MarkMembersAsStatic",
             Justification = "This non-static member is needed for data binding purposes.")]
         public PositionViewModel Position => ServiceLocator.Current.GetInstance<PositionViewModel>();
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
+            "CA1822:MarkMembersAsStatic",
+            Justification = "This non-static member is needed for data binding purposes.")]
+        public MusiCallViewModel Music => ServiceLocator.Current.GetInstance<MusiCallViewModel>();
     }
 }

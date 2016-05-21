@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="SFDemo.UWPDemo.MusicPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SFDemo.UWPDemo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="using:WinRTXamlToolkit.Interactivity"
+    xmlns:controls="using:SFDemo.UWPDemo.Controls"
+    mc:Ignorable="d"
+    DataContext="{Binding Music, Source={StaticResource Locator}}"    >
+
+    <StackPanel Orientation="Horizontal">
+
+        <Button Command="{Binding PlayCommand}" Margin="50" >
+            <SymbolIcon Symbol="Play" />
+        </Button>
+
+        <Button Command="{Binding PauseCommand}" Margin="50" >
+            <SymbolIcon Symbol="Pause" />
+        </Button>
+    </StackPanel>
+
+</Page>

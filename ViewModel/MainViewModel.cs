@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Threading;
 
 using SFDemo.UWPDemo.Service;
+using Windows.UI.Xaml.Controls;
 
 namespace SFDemo.UWPDemo.ViewModel
 {
@@ -34,6 +35,12 @@ namespace SFDemo.UWPDemo.ViewModel
                     Text = "Position",
                     ButtonText = "\uE128",
                     Command = new RelayCommand(() => NavigateTo("Position"), () => ActivePage != "Position" )
+               } ,
+                new NavItem()
+                {
+                    Text = "Music",
+                    ButtonText = "\uE142",
+                    Command = new RelayCommand(() => NavigateTo("Music"), () => ActivePage != "Music" )
                 }
             };
 

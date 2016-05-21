@@ -131,6 +131,7 @@ namespace SFDemo.UWPDemo.ViewModel
             double d = R * c;
             return d*1000;
         }
+
         private double DegreesToRadiants(double deg)
         {
             return (deg * Math.PI / 180.0);
