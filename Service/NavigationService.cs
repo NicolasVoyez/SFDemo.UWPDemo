@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Diagnostics;
 using System.Collections.Generic;
-
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Core;

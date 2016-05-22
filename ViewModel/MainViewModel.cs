@@ -90,6 +90,8 @@ namespace SFDemo.UWPDemo.ViewModel
 
         private void NavigationService_Navigated(object sender, EventArgs e)
         {
+            IsNavOpen = false;
+
             foreach (var nav in MainNavItems)
             {
                 nav.Command.RaiseCanExecuteChanged();

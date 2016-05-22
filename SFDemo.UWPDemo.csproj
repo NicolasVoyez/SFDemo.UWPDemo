@@ -107,6 +107,7 @@
       <DependentUpon>NavControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters.cs" />
+    <Compile Include="Converters\OpeningPaneConverter.cs" />
     <Compile Include="Converters\BoolToTextConverter.cs" />
     <Compile Include="HideablePivotItem.cs" />
     <Compile Include="Pages\HomePage.xaml.cs">
