@@ -52,7 +52,7 @@ namespace SFDemo.UWPDemo.ViewModel
                     ButtonText = "\uE909",
                     Command = new RelayCommand(() =>
                     {
-                        var uri = new Uri("http://google.com/", UriKind.Absolute);
+                        var uri = new Uri("http://www.softfluent.fr/blog/expertise/", UriKind.Absolute);
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
                         Launcher.LaunchUriAsync(uri);
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
