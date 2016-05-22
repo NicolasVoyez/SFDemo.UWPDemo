@@ -3,6 +3,7 @@
 using GalaSoft.MvvmLight.Ioc;
 
 using SFDemo.UWPDemo.Service;
+using Windows.UI.Xaml;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -33,5 +34,16 @@ namespace SFDemo.UWPDemo.Controls
 
             }
         }
+
+        public bool IsAlwaysOpen
+        {
+            get { return (bool)GetValue(IsAlwaysOpenProperty); }
+            set { SetValue(IsAlwaysOpenProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsAlwaysOpenProperty =
+            DependencyProperty.Register("IsAlwaysOpen", typeof(bool), typeof(NavControl), new PropertyMetadata(false));
+
+
     }
 }
